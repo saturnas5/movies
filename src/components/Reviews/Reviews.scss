@@ -1,0 +1,38 @@
+.review-box {
+  padding: 2rem;
+  box-shadow: 0 1rem 4rem .2rem rgba(0,0,0, .15);
+  border-radius: 8px;
+  margin: 2rem 0;
+
+  &__user {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    margin-bottom: 2rem;
+  }
+
+  &__user-img {
+    width: 6rem;
+    height: 6rem;
+    border-radius: 50%;
+  }
+
+  &__user-info {
+    & span {
+      display: block;
+      font-size: 1.8rem;
+    }
+    & span:first-child {
+      font-weight: 500;
+    }
+    & span:last-child {
+      font-weight: 300;
+    }
+  }
+
+  &__content {
+    font-size: 1.2rem;
+    line-height: 1.4;
+    letter-spacing: .5px;
+  }
+}

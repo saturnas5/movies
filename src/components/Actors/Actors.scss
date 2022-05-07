@@ -1,0 +1,25 @@
+.actors {
+
+  &__item {
+    padding: 1rem;
+    flex: 0 0;
+  }
+
+  &__item-img {
+    width: 15rem;
+    height: auto;
+  }
+
+  &__name {
+    display: inline-block;
+    font-size: 1.4rem;
+    font-weight: 500;
+    padding: .5rem;
+  }
+
+  &__role {
+    display: inline-block;
+    font-size: 1.2rem;
+    padding: .1rem .5rem;
+  }
+}

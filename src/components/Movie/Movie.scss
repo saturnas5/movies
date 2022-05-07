@@ -1,0 +1,52 @@
+.movie {
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 1px 3rem rgba(0,0,0, .2);
+  transition: all .3s;
+}
+
+.movie:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 1rem 3rem rgba(0,0,0, .4);
+  cursor: pointer;
+}
+
+.movie Link:link,
+.movie Link:visited {
+  text-decoration: none;
+  color: currentcolor;
+}
+
+.movie img {
+  width: 100%;
+}
+
+.movie h3 {
+  font-size: 1.6rem;
+  letter-spacing: .6px;
+  padding: .5rem 1rem;
+}
+
+.movie p {
+  font-size: 1.4rem;
+  color: #333;
+  margin-left: 1rem;
+}
+
+.movie__score-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  bottom: 3%;
+  right: 3%;
+  background-color: #063970;
+  color: #fff;
+  font-size: 1.2rem;
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  border: 2px solid #063970;
+  box-shadow: inset 0 0 0 2px #fff;
+}

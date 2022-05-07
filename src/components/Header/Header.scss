@@ -1,0 +1,71 @@
+.header {
+  border-bottom: 1px solid lightgray;
+}
+
+.header-flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2rem 0;
+}
+
+.header__logo-box {
+
+}
+
+.logo-box__logo {
+  width: 20rem;
+
+}
+
+.header__search-box {
+  flex: 0 0 30%;
+  display: flex;
+  justify-content: center;
+}
+
+.search-box__input {
+  outline: none;
+  border: none;
+  background-color: #EEEEEE;
+  border-radius: 100px;
+  height: 3rem;
+  padding: 0 2rem;
+  width: 90%;
+  transition: all .3s;
+}
+
+.search-box__input:focus {
+  width: 100%;
+  background-color: #E4E4E4;
+}
+
+.nav-box__list {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-box__list-item a:link,
+.nav-box__list-item a:visited {
+  text-decoration: none;
+  color: black;
+  font-size: 1.8rem;
+  font-weight: 500;
+  transition: all .4s;
+}
+
+.nav-box__list-item {
+  transition: all .4s;
+}
+
+.nav-box__list-item a:hover,
+.nav-box__list-item:hover {
+  transform: scale(1.1) translateY(-2px);
+  color: red;
+}
+
+.nav-box__list-item a:active,
+.nav-box__list-item:active {
+  transform: translateY(0);
+}
