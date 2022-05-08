@@ -10,7 +10,6 @@ const MovieDetails = () => {
     const [loading, setLoading] = useState(true);
     const [actLoading, setActLoading] = useState(true);
     let location = useLocation();
-    console.log(location?.state?.id);
 
     useEffect(() => {
         fetch(`https://api.themoviedb.org/3/movie/${location?.state?.id}/credits?api_key=7a3b49c7c8b83d82c01a03cbffff698d&language=en-US`)
@@ -18,14 +17,14 @@ const MovieDetails = () => {
             .then(data => setActors(data))
             .catch(err => console.log(err))
             .finally(() => setActLoading(false));
-    }, [])
+    }, [location?.state?.id])
 
     useEffect(() => {
         fetch(`https://api.themoviedb.org/3/movie/${location?.state?.id}/reviews?api_key=7a3b49c7c8b83d82c01a03cbffff698d&language=en-US&page=1`)
             .then(response => response.json())
             .then(data => setReviews(data.results))
             .catch(err => console.log(err))
-    }, [])
+    }, [location?.state?.id])
 
     useEffect(() => {
         fetch(`https://api.themoviedb.org/3/movie/${location?.state?.id}?api_key=7a3b49c7c8b83d82c01a03cbffff698d&language=en-US`)
@@ -37,7 +36,7 @@ const MovieDetails = () => {
             })
             .catch(error => console.log(error))
             .finally(() => setLoading(false))
-    }, []);
+    }, [location?.state?.id]);
 
     if(loading) {
         return <p>loading</p>
@@ -106,10 +105,11 @@ const MovieDetails = () => {
                 console.log(actor)
                 return <Actors key={actor.id} actor={actor} />
             }) : null}
+
             </section>
             <section className="reviews">
                 <h3 className='reviews__title'>Reviews</h3>
-                {reviews.length > 0 ? reviews.slice(0, 2).map(review => {
+                {reviews.length > 0 ? reviews.map(review => {
                     return <Reviews key={review.id} review={review}/>
                 }) : <span>No reviews yeat</span>}
             </section>

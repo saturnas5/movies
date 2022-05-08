@@ -3,6 +3,7 @@ import Header from "./components/Header/Header.js";
 import {BrowserRouter, Route, Switch} from "react-router-dom";
 import Main from "./pages/Main/Main";
 import MovieDetails from "./pages/MovieDetails/MovieDetails";
+import Actor from "./pages/Actor/Actor";
 
 function App() {
   return (
@@ -15,6 +16,9 @@ function App() {
                 </Route>
                 <Route exact path='/movie/:name/:id'>
                     <MovieDetails/>
+                </Route>
+                <Route exact path='/actor/:name/:id'>
+                    <Actor/>
                 </Route>
             </Switch>
           </BrowserRouter>

@@ -1,0 +1,160 @@
+.container {
+  width: 120rem;
+  margin: 0 auto;
+}
+
+.actor {
+  display: flex;
+  gap: 5rem;
+  margin-top: 5rem;
+
+  &__personal {
+    flex: 0 0 25%;
+    padding: 0 1rem;
+
+    & figure {
+      overflow: hidden;
+      border-radius: 11px;
+    }
+  }
+
+  &__acting {
+    flex: 0 0 75%;
+    overflow-x: hidden;
+  }
+
+  &__personal-info {
+    font-size: 2.4rem;
+    display: inline-block;
+    margin: 2rem 0;
+  }
+
+  &__personal-info-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+
+    &-box-name {
+      display: block;
+      font-size: 1.8rem;
+      font-weight: 600;
+      letter-spacing: .6px;
+      margin-bottom: .5rem;
+    }
+
+    &-box-item {
+      display: block;
+      font-size: 1.6rem;
+    }
+  }
+
+  &__acting {
+
+    &-title {
+      font-size: 3.2rem;
+      font-weight: 600;
+      margin-bottom: 3rem;
+    }
+
+    &-biography {
+      &-title {
+        font-size: 2.2rem;
+        font-weight: 500;
+        display: inline-block;
+        margin-bottom: 1.5rem;
+      }
+      &-description {
+        font-size: 1.5rem;
+        line-height: 1.6;
+        display: inline-block;
+      }
+    }
+  }
+
+  &__acting-biography {
+    overflow: hidden;
+  }
+
+  &__acting-best-movies-slider {
+    display: flex;
+    gap: 2rem;
+    overflow-x: scroll;
+  }
+
+  &__acting-best-movies {
+    padding: 3rem 0;
+
+    &-title {
+      display: inline-block;
+      font-size: 2.2rem;
+      font-weight: 500;
+      margin-bottom: 1.5rem;
+    }
+
+    &-slider-item {
+      height: auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+
+      & figure {
+        border-radius: 8px;
+        overflow: hidden;
+      }
+
+      & img {
+        height: auto;
+        width: 15rem;
+      }
+
+      & span {
+        font-size: 1.2rem;
+        font-weight: 500;
+        display: inline-block;
+        padding: 1rem 0;
+      }
+    }
+  }
+
+  &__acting-best-movies-slider-link:link,
+  &__acting-best-movies-slider-link:visited {
+    text-decoration: none;
+    color: black;
+  }
+
+  &__acting-history {
+    height: 45rem;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    overflow-y: scroll;
+    box-shadow: 0 0rem 1rem 0 rgba(0,0,0, .1);
+    margin: 1rem;
+    border-radius: 8px;
+    padding: 1rem;
+
+  }
+
+  &__acting-history-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    list-style: none;
+  }
+
+  &__acting-history-list-item-link:link,
+  &__acting-history-list-item-link:visited {
+    text-decoration: none;
+    color: #222;
+    font-size: 1.8rem;
+    font-weight: 500;
+    letter-spacing: .7px;
+    line-height: 1.6;
+    display: flex;
+    align-items: center;
+
+    & img {
+      height: 8rem;
+    }
+  }
+}

@@ -2,12 +2,28 @@
 
   &__item {
     padding: 1rem;
-    flex: 0 0;
+    color: black;
+
+    &:link,
+    &:visited {
+      text-decoration: none;
+      color: black;
+      cursor: pointer;
+    }
+
+    & figure {
+      overflow: hidden;
+    }
   }
 
   &__item-img {
     width: 15rem;
     height: auto;
+    transition: all .3s;
+
+    &:hover {
+      transform: scale(1.2);
+    }
   }
 
   &__name {
@@ -15,6 +31,10 @@
     font-size: 1.4rem;
     font-weight: 500;
     padding: .5rem;
+
+    &:link {
+      color: black;
+    }
   }
 
   &__role {

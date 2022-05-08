@@ -106,7 +106,12 @@
 }
 
 .reviews {
-  width: 120rem;
   border-top: 1px solid lightgray;
+  width: 120rem;
   margin: 5rem auto;
+  height: 45rem;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  overflow-y: scroll;
+
 }

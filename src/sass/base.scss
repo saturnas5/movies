@@ -23,12 +23,14 @@ body {
   grid-template-columns: repeat(6, 1fr);
   column-gap: 2rem;
   row-gap: 2rem;
+  margin-top: 5rem;
 }
 
 .flex-box {
   display: flex;
 }
 
-.top-gutter-medium {
+.top-gutter-md {
   margin-top: 5rem;
+  margin-bottom: 5rem;
 }
