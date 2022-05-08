@@ -1,14 +1,14 @@
 import React, {useState, useEffect} from "react";
 import Movie from "../../components/Movie/Movie";
-import Pagination from "../../components/Pagination/Pagination";
 
-const Main = () => {
+const Latest = () => {
     const [movies, setMovies] = useState([]);
     const [genres, setGenres] = useState([]);
-    const [page, setPage] = useState(1)
+
+
 
     useEffect(() => {
-        fetch(`https://api.themoviedb.org/3/movie/popular?api_key=7a3b49c7c8b83d82c01a03cbffff698d&language=en-US&page=${page ?? 1}`)
+        fetch('https://api.themoviedb.org/3/movie/latest?api_key=7a3b49c7c8b83d82c01a03cbffff698d&language=en-US')
             .then(response => response.json())
             .then(data => setMovies(data.results))
             .catch(error => console.log(error));
@@ -16,21 +16,20 @@ const Main = () => {
         fetch('https://api.themoviedb.org/3/genre/movie/list?api_key=7a3b49c7c8b83d82c01a03cbffff698d&language=en-US')
             .then(response => response.json())
             .then(data => setGenres(data.genres))
-            .catch(err => console.log(err))
+        console.log('sadsdsdsaas',movies)
     }, [movies])
 
     return (
         <>
             <main>
-                <div className="container grid-6" style={{marginTop: 50, marginBottom: 50, position: 'relative'}}>
-                    {movies.map(movie => {
+                <div className="container grid-6" style={{marginTop: 50, marginBottom: 50}}>
+                    {movies.length > 0 && movies.map(movie => {
                         return <Movie genres={genres} key={movie.id} movie={movie} />
                     })}
-                    <Pagination page={page} setPage={setPage}/>
                 </div>
             </main>
         </>
     );
 }
 
-export default Main;
+export default Latest;

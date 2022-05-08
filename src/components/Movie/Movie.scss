@@ -4,6 +4,17 @@
   position: relative;
   box-shadow: 0 1px 3rem rgba(0,0,0, .2);
   transition: all .3s;
+
+  &__link:link,
+  &__link:visited {
+    text-decoration: none;
+    color: #333;
+  }
+}
+
+.movie__genre {
+  display: inline-block;
+  font-size: 1.2rem !important;
 }
 
 .movie:hover {
@@ -12,18 +23,12 @@
   cursor: pointer;
 }
 
-.movie Link:link,
-.movie Link:visited {
-  text-decoration: none;
-  color: currentcolor;
-}
-
 .movie img {
   width: 100%;
 }
 
 .movie h3 {
-  font-size: 1.6rem;
+  font-size: 1.4rem;
   letter-spacing: .6px;
   padding: .5rem 1rem;
 }

@@ -2,7 +2,7 @@ import React, {useEffect, useState} from "react";
 import {Link} from "react-router-dom";
 
 const Movie = ({movie, genres}) => {
-    let test = genres.filter(item => {
+    let genre = genres.filter(item => {
         for(let j = 0; j < movie.genre_ids.length; j ++) {
             if(item.id === movie.genre_ids[j]) {
                 return item
@@ -18,7 +18,7 @@ const Movie = ({movie, genres}) => {
     return (
         <>
             <div className="movie">
-                <Link to={{
+                <Link className='movie__link' to={{
                     pathname: `/movie/${trim(movie.title)}/${movie.id}`,
                     id: movie.id,
                     state: {
@@ -30,7 +30,9 @@ const Movie = ({movie, genres}) => {
                     </div>
                     <h3>{movie.original_title}</h3>
                     <p>{movie.release_date}</p>
-                    <p>{test.length > 1 && test.map(item => item.name)}</p>
+                    {genre.length > 1 && genre.map(item => {
+                        return <p key={item.id} className='movie__genre'>{item.name}</p>
+                    }).slice(0, 2)}
                     <div className="movie__score-box">
                         {movie.vote_average}
                     </div>

@@ -2,13 +2,13 @@ import React, {useState, useEffect} from "react";
 import Movie from "../../components/Movie/Movie";
 import Pagination from "../../components/Pagination/Pagination";
 
-const Main = () => {
+const Upcoming = () => {
     const [movies, setMovies] = useState([]);
     const [genres, setGenres] = useState([]);
     const [page, setPage] = useState(1)
 
     useEffect(() => {
-        fetch(`https://api.themoviedb.org/3/movie/popular?api_key=7a3b49c7c8b83d82c01a03cbffff698d&language=en-US&page=${page ?? 1}`)
+        fetch(`https://api.themoviedb.org/3/movie/upcoming?api_key=7a3b49c7c8b83d82c01a03cbffff698d&language=en-US&page=${page}`)
             .then(response => response.json())
             .then(data => setMovies(data.results))
             .catch(error => console.log(error));
@@ -33,4 +33,4 @@ const Main = () => {
     );
 }
 
-export default Main;
+export default Upcoming;

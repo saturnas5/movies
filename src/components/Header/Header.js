@@ -16,10 +16,10 @@ const Header = () => {
                 </div>
                 <div className="header__nav-box">
                     <ul className="nav-box__list">
-                        <li className="nav-box__list-item"><Link to='/'>Home</Link></li>
-                        <li className="nav-box__list-item"><Link to='#'>Home</Link></li>
-                        <li className="nav-box__list-item"><Link to='#'>Home</Link></li>
-                        <li className="nav-box__list-item"><Link to='#'>Home</Link></li>
+                        <li className="nav-box__list-item"><Link to='/'>Popular</Link></li>
+                        <li className="nav-box__list-item"><Link to='/upcoming'>Upcoming</Link></li>
+                        <li className="nav-box__list-item"><Link to='/top-rated'>Top Rated</Link></li>
+                        <li className="nav-box__list-item"><Link to='/login'>Sign In</Link></li>
                     </ul>
                 </div>
             </div>

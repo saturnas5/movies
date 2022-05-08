@@ -4,6 +4,9 @@ import {BrowserRouter, Route, Switch} from "react-router-dom";
 import Main from "./pages/Main/Main";
 import MovieDetails from "./pages/MovieDetails/MovieDetails";
 import Actor from "./pages/Actor/Actor";
+import Upcoming from "./pages/Upcoming/Upcoming";
+import TopRated from "./pages/TopRated/TopRated";
+import Latest from "./pages/Latest/Latest";
 
 function App() {
   return (
@@ -13,6 +16,15 @@ function App() {
             <Switch>
                 <Route exact path='/'>
                     <Main/>
+                </Route>
+                <Route exact path='/upcoming'>
+                    <Upcoming/>
+                </Route>
+                <Route exact path='/top-rated'>
+                    <TopRated/>
+                </Route>
+                <Route exact path='/latest'>
+                    <Latest/>
                 </Route>
                 <Route exact path='/movie/:name/:id'>
                     <MovieDetails/>
