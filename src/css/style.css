@@ -39,25 +39,6 @@ body {
 .logo-box__logo {
   width: 20rem; }
 
-.header__search-box {
-  flex: 0 0 30%;
-  display: flex;
-  justify-content: center; }
-
-.search-box__input {
-  outline: none;
-  border: none;
-  background-color: #EEEEEE;
-  border-radius: 100px;
-  height: 3rem;
-  padding: 0 2rem;
-  width: 90%;
-  transition: all .3s; }
-
-.search-box__input:focus {
-  width: 100%;
-  background-color: #E4E4E4; }
-
 .nav-box__list {
   list-style: none;
   display: flex;
@@ -307,7 +288,33 @@ input[type=number] {
   display: inline-block;
   transition: all .3s; }
   .btn:hover {
-    cursor: pointer; }
+    cursor: pointer;
+    transform: scale(1.1); }
+  .btn:active {
+    cursor: pointer;
+    transform: scale(1); }
+
+.btn-fig {
+  overflow: hidden; }
+
+.header__search-box {
+  flex: 0 0 30%;
+  display: flex;
+  justify-content: center; }
+
+.search-box__input {
+  outline: none;
+  border: none;
+  background-color: #EEEEEE;
+  border-radius: 100px;
+  height: 3rem;
+  padding: 0 2rem;
+  width: 90%;
+  transition: all .3s; }
+
+.search-box__input:focus {
+  width: 100%;
+  background-color: #E4E4E4; }
 
 .movie-details {
   height: 65vh;

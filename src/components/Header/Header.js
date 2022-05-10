@@ -2,6 +2,7 @@ import React from "react";
 import {Link} from "react-router-dom";
 import logo from '../../img/logo.png';
 import '../../css/style.css';
+import SearchBox from "../SearchBox/SearchBox";
 
 const Header = () => {
 
@@ -11,9 +12,7 @@ const Header = () => {
                 <div className="header__logo-box">
                     <img src={logo} alt="" className="logo-box__logo"/>
                 </div>
-                <div className="header__search-box">
-                    <input type="text" className="search-box__input"/>
-                </div>
+                <SearchBox/>
                 <div className="header__nav-box">
                     <ul className="nav-box__list">
                         <li className="nav-box__list-item"><Link to='/'>Popular</Link></li>

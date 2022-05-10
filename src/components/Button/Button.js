@@ -7,7 +7,11 @@ const Button = (props) => {
         btn: true
     }, className)
 
-    return <input type='submit' className={clasName} value={value} {...rest}/>
+    return (
+        <div className='btn-fig'>
+            <input type={type} className={clasName} value={value} {...rest}/>
+        </div>
+    )
 }
 
 export default Button;
