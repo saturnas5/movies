@@ -15,7 +15,7 @@ const Popup = ({trailers ,className, onClose}) => {
             onClose()
         }
     }
-    console.log(trailers)
+
     return (
         <div className={className} id='popup'>
             <div className="popup__content">

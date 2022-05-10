@@ -5,6 +5,7 @@ import Actors from "../../components/Actors/Actors";
 import Reviews from "../../components/Reviews/Reviews";
 import Recommendations from "../../components/Recommendations/Recommendations";
 import Popup from "../../components/Popup/Popup";
+import Button from "../../components/Button/Button";
 
 const MovieDetails = () => {
     const [movie, setMovie] = useState({});
@@ -121,8 +122,8 @@ const MovieDetails = () => {
                                 <li className="movie-details__cta-list-item">Add to list</li>
                                 <li className="movie-details__cta-list-item">Mark as favorite</li>
                                 <li className="movie-details__cta-list-item">Add to your watchlist</li>
-                                <li className="movie-details__cta-list-item">Rate it</li>
-                                <li className="movie-details__cta-list-item"><input onClick={toogleTrailerPop} type="submit" value='Play Trailer'/></li>
+                                <li><Button value='Rate it' /></li>
+                                <li><Button onClick={toogleTrailerPop} value='Play Trailer'/></li>
                             </ul>
                             <div className="movie-details__overview">
                                 <span className="movie-details__overview-name">Overview</span>

@@ -295,6 +295,20 @@ input[type=number] {
 .active .popup__content {
   opacity: 1; }
 
+.btn {
+  border: none;
+  background-color: #063970;
+  color: #ffffff;
+  font-weight: 500;
+  letter-spacing: .7px;
+  font-size: 1.4rem;
+  font-family: 'Roboto';
+  padding: 1rem 2rem;
+  display: inline-block;
+  transition: all .3s; }
+  .btn:hover {
+    cursor: pointer; }
+
 .movie-details {
   height: 65vh;
   color: #ffffff;
