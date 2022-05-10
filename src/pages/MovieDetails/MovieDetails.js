@@ -1,7 +1,10 @@
 import React, {useEffect, useState} from "react";
-import {useLocation} from 'react-router-dom';
+import {useLocation, Link} from 'react-router-dom';
+import clsx from "clsx";
 import Actors from "../../components/Actors/Actors";
 import Reviews from "../../components/Reviews/Reviews";
+import Recommendations from "../../components/Recommendations/Recommendations";
+import Popup from "../../components/Popup/Popup";
 
 const MovieDetails = () => {
     const [movie, setMovie] = useState({});
@@ -9,8 +12,16 @@ const MovieDetails = () => {
     const [reviews, setReviews] = useState([]);
     const [loading, setLoading] = useState(true);
     const [actLoading, setActLoading] = useState(true);
+    const [recommendations, setRecommendations] = useState([]);
+    const [active, setActive] = useState(false);
+    const [trailers, setTrailers] = useState([])
+    const className = clsx({
+        popup: true,
+        active: active
+    })
     let location = useLocation();
 
+    // Fetching movie actors
     useEffect(() => {
         fetch(`https://api.themoviedb.org/3/movie/${location?.state?.id}/credits?api_key=7a3b49c7c8b83d82c01a03cbffff698d&language=en-US`)
             .then(response => response.json())
@@ -19,13 +30,15 @@ const MovieDetails = () => {
             .finally(() => setActLoading(false));
     }, [location?.state?.id])
 
+    // Fetching movie reviews
     useEffect(() => {
         fetch(`https://api.themoviedb.org/3/movie/${location?.state?.id}/reviews?api_key=7a3b49c7c8b83d82c01a03cbffff698d&language=en-US&page=1`)
             .then(response => response.json())
             .then(data => setReviews(data.results))
-            .catch(err => console.log(err))
+            .catch(err => console.log('reviews', err))
     }, [location?.state?.id])
 
+    // Fetching movie data
     useEffect(() => {
         fetch(`https://api.themoviedb.org/3/movie/${location?.state?.id}?api_key=7a3b49c7c8b83d82c01a03cbffff698d&language=en-US`)
             .then(response => response.json())
@@ -34,9 +47,41 @@ const MovieDetails = () => {
                     setMovie(data)
                 }
             })
-            .catch(error => console.log(error))
+            .catch(error => console.log('data', error))
             .finally(() => setLoading(false))
     }, [location?.state?.id]);
+
+    // Fetching movie recommendations
+    useEffect(() => {
+        fetch(`https://api.themoviedb.org/3/movie/${location?.state?.id}/recommendations?api_key=7a3b49c7c8b83d82c01a03cbffff698d&language=en-US&page=1`)
+            .then(response => response.json())
+            .then(data => {
+                if(data) {
+                    setRecommendations(data.results)
+                }
+            })
+            .catch(err => console.log('recommendations', err))
+    }, [location?.state?.id])
+
+    // Fetching movie trailers array
+    useEffect(() => {
+        fetch(`https://api.themoviedb.org/3/movie/${location?.state?.id}/videos?api_key=7a3b49c7c8b83d82c01a03cbffff698d&language=en-US`)
+            .then(response => response.json())
+            .then(data => {
+                if(data) {
+                    setTrailers(data.results)
+                }
+            })
+            .catch(err => console.log('trailers', err))
+    }, [location?.state?.id])
+
+    function toogleTrailerPop() {
+        if(active === false) {
+            setActive(true)
+        } else {
+            setActive(false)
+        }
+    }
 
     if(loading) {
         return <p>loading</p>
@@ -77,7 +122,7 @@ const MovieDetails = () => {
                                 <li className="movie-details__cta-list-item">Mark as favorite</li>
                                 <li className="movie-details__cta-list-item">Add to your watchlist</li>
                                 <li className="movie-details__cta-list-item">Rate it</li>
-                                <li className="movie-details__cta-list-item">Play trailer</li>
+                                <li className="movie-details__cta-list-item"><input onClick={toogleTrailerPop} type="submit" value='Play Trailer'/></li>
                             </ul>
                             <div className="movie-details__overview">
                                 <span className="movie-details__overview-name">Overview</span>
@@ -102,17 +147,28 @@ const MovieDetails = () => {
 
             <section className="actors-section">
             {!actLoading ? actors.cast.map(actor => {
-                console.log(actor)
                 return <Actors key={actor.id} actor={actor} />
             }) : null}
 
             </section>
-            <section className="reviews">
+            <div className="reviews-section">
                 <h3 className='reviews__title'>Reviews</h3>
+            <section className="reviews">
                 {reviews.length > 0 ? reviews.map(review => {
                     return <Reviews key={review.id} review={review}/>
                 }) : <span>No reviews yeat</span>}
             </section>
+            </div>
+
+            <div className="recommendations-section">
+                <h4>Recommendations</h4>
+            <div className="recommendations__box">
+            {recommendations.map(movie => {
+                return <Recommendations key={movie.id} movie={movie} />
+            })}
+            </div>
+            </div>
+            <Popup onClose={toogleTrailerPop} className={className} trailers={trailers}/>
         </>
     );
 

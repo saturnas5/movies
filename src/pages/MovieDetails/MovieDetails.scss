@@ -72,6 +72,20 @@
         color: #ffffff;
         font-weight: 500;
         letter-spacing: .7px;
+
+        & input {
+          border: none;
+          background: none;
+          color: #ffffff;
+          font-weight: 500;
+          letter-spacing: .7px;
+          font-size: 1.4rem;
+          font-family: 'Roboto';
+
+          &:hover {
+            cursor: pointer;
+          }
+        }
       }
       &-item:hover {
         cursor: pointer;
@@ -108,10 +122,31 @@
 .reviews {
   border-top: 1px solid lightgray;
   width: 120rem;
-  margin: 5rem auto;
-  height: 45rem;
+  margin: 0 auto;
+  margin-bottom: 5rem;
+  max-height: 45rem;
   -ms-overflow-style: none;
   scrollbar-width: none;
   overflow-y: scroll;
 
+  &__title {
+    font-size: 2.2rem;
+  }
+
+}
+
+.recommendations__box {
+  width: 120rem;
+  margin: 0 auto;
+  display: flex;
+  overflow-x: scroll;
+}
+
+.recommendations-section {
+  width: 120rem;
+  margin: 0 auto;
+
+  & h4 {
+    font-size: 2.2rem;
+  }
 }

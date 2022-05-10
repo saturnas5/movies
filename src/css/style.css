@@ -139,7 +139,8 @@ body {
     color: black;
     cursor: pointer; }
   .actors__item figure {
-    overflow: hidden; }
+    overflow: hidden;
+    border-radius: 11px; }
 
 .actors__item-img {
   width: 15rem;
@@ -187,6 +188,12 @@ body {
     line-height: 1.4;
     letter-spacing: .5px; }
 
+.reviews-section {
+  width: 120rem;
+  margin: 0 auto;
+  display: block;
+  margin-top: 5rem; }
+
 .pagination {
   position: absolute;
   bottom: 0;
@@ -222,6 +229,71 @@ input::-webkit-inner-spin-button {
 
 input[type=number] {
   -moz-appearance: textfield; }
+
+.recommendations {
+  padding: 1rem 2rem;
+  text-align: center; }
+  .recommendations figure {
+    overflow: hidden;
+    border-radius: 11px; }
+  .recommendations img {
+    transition: all .3s;
+    height: 100%;
+    object-fit: cover; }
+    .recommendations img:hover {
+      transform: scale(1.1); }
+  .recommendations__name {
+    font-size: 1.4rem;
+    font-weight: 500;
+    display: inline-block;
+    margin-top: 1rem; }
+  .recommendations__link:link, .recommendations__link:visited {
+    text-decoration: none;
+    color: black; }
+
+.popup {
+  height: 100vh;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 3000;
+  opacity: 0;
+  visibility: hidden;
+  transition: all .3s; }
+  .popup__close {
+    border: none;
+    background: none;
+    color: lightgray;
+    font-size: 3.2rem;
+    line-height: .8;
+    position: absolute;
+    top: 1%;
+    right: 1%;
+    transition: all .3s; }
+    .popup__close:hover {
+      cursor: pointer;
+      color: gray; }
+  .popup__content {
+    height: 80%;
+    width: 80%;
+    background-color: black;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+    transition: all .4s .2s; }
+
+.popup.active {
+  visibility: visible;
+  opacity: 1; }
+
+.active .popup__content {
+  opacity: 1; }
 
 .movie-details {
   height: 65vh;
@@ -274,6 +346,16 @@ input[type=number] {
         color: #ffffff;
         font-weight: 500;
         letter-spacing: .7px; }
+        .movie-details__cta-list-item input {
+          border: none;
+          background: none;
+          color: #ffffff;
+          font-weight: 500;
+          letter-spacing: .7px;
+          font-size: 1.4rem;
+          font-family: 'Roboto'; }
+          .movie-details__cta-list-item input:hover {
+            cursor: pointer; }
       .movie-details__cta-list-item:hover {
         cursor: pointer; }
   .movie-details__overview {
@@ -298,11 +380,26 @@ input[type=number] {
 .reviews {
   border-top: 1px solid lightgray;
   width: 120rem;
-  margin: 5rem auto;
-  height: 45rem;
+  margin: 0 auto;
+  margin-bottom: 5rem;
+  max-height: 45rem;
   -ms-overflow-style: none;
   scrollbar-width: none;
   overflow-y: scroll; }
+  .reviews__title {
+    font-size: 2.2rem; }
+
+.recommendations__box {
+  width: 120rem;
+  margin: 0 auto;
+  display: flex;
+  overflow-x: scroll; }
+
+.recommendations-section {
+  width: 120rem;
+  margin: 0 auto; }
+  .recommendations-section h4 {
+    font-size: 2.2rem; }
 
 .container {
   width: 120rem;
