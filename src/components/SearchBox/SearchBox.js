@@ -5,6 +5,9 @@ const SearchBox = () => {
     const [search, setSearch] = useState('');
     const [results, setResults] = useState([]);
 
+
+    // After clicking on link we clear search input but leaving last search result array.
+    // When search input is focused again its showing last search results.
     async function fetchSearch(e) {
         setSearch(e.target.value);
         if(e.target.value.length >= 2) {
@@ -24,7 +27,7 @@ const SearchBox = () => {
         <>
             <div className="header__search-box">
                 <input onChange={e => fetchSearch(e)} value={search} type="text" className="search-box__input"/>
-                <div className="search-box__output active">
+                {results.length > 0 && <div className="search-box__output active">
                     <ul className="search-box__output-list">
                         {results.length > 0 && results.map(result => {
                             return <li className='search-box__output-list-item' key={result.id}><Link onClick={e => setSearch('')} className='search-box__link' to={{
@@ -36,7 +39,7 @@ const SearchBox = () => {
                             }}>{result.title}</Link></li>
                         })}
                     </ul>
-                </div>
+                </div>}
             </div>
         </>
     );
