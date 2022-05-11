@@ -1,10 +1,10 @@
 import React, {useState, useEffect} from "react";
 import {Link} from "react-router-dom";
+import {trim} from "../../utils/utils";
 
 const SearchBox = () => {
     const [search, setSearch] = useState('');
     const [results, setResults] = useState([]);
-
 
     // After clicking on link we clear search input but leaving last search result array.
     // When search input is focused again its showing last search results.
@@ -16,11 +16,6 @@ const SearchBox = () => {
             let data = await respone.json()
             setResults(data.results)
         }
-    }
-
-    function trim(name) {
-        const chars = {' ': '-', ':': '', '-': '-'};
-        return name.trim().toLowerCase().replace(/[ :-]/g, m => chars[m]);
     }
 
     return (

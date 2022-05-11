@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from "react";
 import {Link} from "react-router-dom";
+import {trim} from "../../utils/utils";
 
 const Movie = ({movie, genres}) => {
     let genre = genres.filter(item => {
@@ -9,11 +10,6 @@ const Movie = ({movie, genres}) => {
             }
         }
     })
-
-    function trim(name) {
-        const chars = {' ': '-', ':': '', '-': '-'};
-        return name.trim().toLowerCase().replace(/[ :-]/g, m => chars[m]);
-    }
 
     return (
         <>

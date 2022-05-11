@@ -5,7 +5,6 @@ import YouTube, {YouTubeProps} from "react-youtube";
 const Popup = ({trailers ,className, onClose}) => {
     const [paused, setPaused] = useState(false)
     let officialTrailer = trailers.filter(trailer => trailer.name.includes('Official'));
-    let alternativeTrailer = trailers[0].key
 
     function stopVideo(e) {
         if(paused === false) {
@@ -25,7 +24,7 @@ const Popup = ({trailers ,className, onClose}) => {
                 }} className="popup__close" value='&times;'/>
                 <YouTube
                     style={{height: '100%'}}
-                    videoId={trailers.length > 0 ? officialTrailer[0].key : alternativeTrailer}
+                    videoId={trailers.length > 0 ? officialTrailer[0].key : ''}
                     opts={{height: '100%', width: '100%', paused: paused}}
                 />
             </div>

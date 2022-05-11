@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from "react";
 import {useLocation, Link} from 'react-router-dom';
+import {trim} from "../../utils/utils";
 
 
 const Actor = () => {
@@ -28,11 +29,6 @@ const Actor = () => {
             })
             .catch(err => console.log(err))
     },[location])
-
-    function trim(name) {
-        const chars = {' ': '-', ':': '', '-': '-'};
-        return name.trim().toLowerCase().replace(/[ :-]/g, m => chars[m]);
-    }
 
     function bestMovies(list) {
         let moviesByRate = list.filter(movie => movie.vote_average > 6.5)
