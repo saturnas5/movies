@@ -24,7 +24,7 @@ const TopRated = () => {
     return (
         <>
             <main>
-                <div className="container grid-6" style={{marginTop: 50, marginBottom: 50, position: 'relative'}}>
+                <div className="container grid-5" style={{marginTop: 50, marginBottom: 50, position: 'relative'}}>
                     {movies.map(movie => {
                         return <Movie genres={genres} key={movie.id} movie={movie} />
                     })}
