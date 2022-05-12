@@ -1,10 +1,10 @@
 import React, {useState, useEffect} from "react";
-import {Link} from "react-router-dom";
-import YouTube, {YouTubeProps} from "react-youtube";
+import YouTube from "react-youtube";
 
 const Popup = ({trailers ,className, onClose}) => {
     const [paused, setPaused] = useState(false)
-    let officialTrailer = trailers.filter(trailer => trailer.name.includes('Official'));
+    let trailer = trailers[0].key;
+
 
     function stopVideo(e) {
         if(paused === false) {
@@ -24,7 +24,7 @@ const Popup = ({trailers ,className, onClose}) => {
                 }} className="popup__close" value='&times;'/>
                 <YouTube
                     style={{height: '100%'}}
-                    videoId={trailers.length > 0 ? officialTrailer[0].key : ''}
+                    videoId={trailers.length > 0 ? trailer : ''}
                     opts={{height: '100%', width: '100%', paused: paused}}
                 />
             </div>

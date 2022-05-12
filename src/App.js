@@ -7,6 +7,7 @@ import Actor from "./pages/Actor/Actor";
 import Upcoming from "./pages/Upcoming/Upcoming";
 import TopRated from "./pages/TopRated/TopRated";
 import Latest from "./pages/Latest/Latest";
+import Footer from "./components/Footer/Footer";
 
 function App() {
   return (
@@ -33,6 +34,7 @@ function App() {
                     <Actor/>
                 </Route>
             </Switch>
+              <Footer/>
           </BrowserRouter>
       </div>
   )

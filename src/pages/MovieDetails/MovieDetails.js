@@ -169,7 +169,7 @@ const MovieDetails = () => {
             })}
             </div>
             </div>
-            <Popup onClose={toogleTrailerPop} className={className} trailers={trailers}/>
+            {trailers.length > 0 && <Popup onClose={toogleTrailerPop} className={className} trailers={trailers}/>}
         </>
     );
 

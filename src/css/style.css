@@ -350,6 +350,50 @@ input[type=number] {
 .search-box__output-list {
   list-style: none; }
 
+.footer {
+  margin-top: 10rem;
+  border-top: 2px solid #ddd; }
+  .footer-container {
+    width: 120rem;
+    margin: 0 auto;
+    display: flex;
+    padding: 5rem 1rem; }
+  .footer__logo-box {
+    height: 10rem;
+    width: auto; }
+    .footer__logo-box-img {
+      height: 10rem;
+      width: 100%; }
+  .footer__info-box {
+    display: flex;
+    justify-content: space-between;
+    margin-left: auto; }
+    .footer__info-box div:not(:last-child) {
+      margin-right: 10rem; }
+  .footer__nav-box-list {
+    list-style: none; }
+    .footer__nav-box-list-item {
+      transition: all .3s; }
+      .footer__nav-box-list-item:hover {
+        cursor: pointer;
+        transform: translateY(-2px); }
+      .footer__nav-box-list-item:active {
+        transform: translateY(0); }
+      .footer__nav-box-list-item-link:link, .footer__nav-box-list-item-link:visited {
+        text-decoration: none;
+        color: #333333;
+        font-size: 1.8rem;
+        font-weight: 500;
+        line-height: 1.6;
+        letter-spacing: .7px; }
+  .footer__copyright {
+    text-align: center;
+    padding: 2rem 0; }
+    .footer__copyright-text {
+      color: #333333;
+      font-size: 1.2rem;
+      letter-spacing: .7px; }
+
 .movie-details {
   height: 65vh;
   color: #ffffff;
