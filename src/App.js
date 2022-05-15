@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useContext, useEffect} from "react";
 import Header from "./components/Header/Header.js";
 import {BrowserRouter, Route, Switch} from "react-router-dom";
 import Main from "./pages/Main/Main";
@@ -9,7 +9,17 @@ import TopRated from "./pages/TopRated/TopRated";
 import Latest from "./pages/Latest/Latest";
 import Footer from "./components/Footer/Footer";
 
-function App() {
+import {Provider as MovieProvider} from "./context/moviesContext";
+import {Context as MoviesContext} from "./context/moviesContext";
+
+
+const App = () => {
+    const {loadGenres} = useContext(MoviesContext);
+
+    useEffect(() => {
+        loadGenres();
+    }, [])
+
   return (
       <div>
           <BrowserRouter>
@@ -40,4 +50,10 @@ function App() {
   )
 }
 
-export default App;
+export default () => {
+    return (
+        <MovieProvider>
+            <App/>
+        </MovieProvider>
+    )
+}
